@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기온에 따른 자전거 대여량 2차 비선형회귀 프로그램</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>기온에 따른 자전거 대여량 2차 비선형회귀 프로그램</h1>
+      <p>기온과 자전거 대여량의 관계를 2차식으로 분석하고 예측합니다.</p>
+    </header>
+
+    <section class="card">
+      <h2>1. 기온 입력 및 대여량 예측</h2>
+      <div class="input-row">
+        <input id="temperature" type="number" step="0.1" value="20" placeholder="기온(℃)">
+        <button id="predictBtn">예측하기</button>
+      </div>
+      <div id="prediction" class="result"></div>
+    </section>
+
+    <section class="card">
+      <h2>2. 2차 비선형회귀 분석 결과</h2>
+      <div class="stats">
+        <div class="stat equation-box">
+          <span class="label">2차 회귀식</span>
+          <strong id="equation">계산 중...</strong>
+        </div>
+        <div class="stat">
+          <span class="label">R²</span>
+          <strong id="r2">계산 중...</strong>
+        </div>
+        <div class="stat">
+          <span class="label">데이터 수</span>
+          <strong id="dataCount">20개</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. 산점도 및 2차 비선형 회귀곡선</h2>
+      <p class="note">기온이 증가할 때 대여량이 감소하다가 다시 증가하는 U자형 관계입니다.</p>
+      <div class="chart-wrap">
+        <canvas id="regressionChart"></canvas>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. 사용 데이터</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>번호</th><th>기온(℃)</th><th>자전거 대여량(대)</th></tr>
+          </thead>
+          <tbody id="dataTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <p>※ 본 데이터는 2차 비선형회귀의 U자형 곡선을 확인하기 위한 예제 데이터입니다.</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
